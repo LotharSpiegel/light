@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block block-id %}{% endblock %}
+
+{% block content %}
+
+<p>
+This page is not yet published.
+</p>
+
+{% if request.user == page.author %}
+You created this page.
+{% endif %}
+
+{% if request.user.is_superuser or request.user == page.author %}
+<a class="btn" href="{% url 'edit_page' page.slug %}">Edit Page</a>
+{% endif %}
+
+{% endblock %}

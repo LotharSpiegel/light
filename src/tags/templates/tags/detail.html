@@ -1,0 +1,10 @@
+{{ tag.name }}
+
+{% for photo in photos %}
+  <img src="{{ photo.get_image_url }}">
+  <br>
+{% empty %}
+	no photos for this tag
+
+{% endfor %}
+

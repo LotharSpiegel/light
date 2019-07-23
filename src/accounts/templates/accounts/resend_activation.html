@@ -1,0 +1,16 @@
+{% block content %}
+
+<div class="row">
+	<div class="offset-by-two eight columns">
+		<div class="center">
+			<p>Resend your account activation email.</p>
+		</div>
+	 	<form method="post" action="{% url 'accounts:resend_activation'%}">
+	    {% csrf_token %}
+	    {% include 'includes/form.html' %}
+	    <button type="submit" class="btn btn-success">Resend Activation E-Mail</button>
+  	</form>
+	</div>
+</div>
+
+{% endblock %}

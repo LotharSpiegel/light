@@ -1,0 +1,12 @@
+{% block content %}
+
+
+<h1>Update Member Profile of {{ profile }}</h1>
+
+<form method="post" action="{{ profile.get_update_url }}">
+  {% csrf_token %}
+  {% include 'includes/form.html' %}
+  <button type="submit" class="btn btn-success">Update Profile</button>
+</form>
+
+{% endblock %}

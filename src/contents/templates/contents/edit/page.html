@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if page %}
+        Edit page "{{ page.title}}"
+    {% else %}
+        Create a new page
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    <h1>
+        {% if page %}
+            Edit page "{{ page.title }}"
+        {% else %}
+            Create a new page
+        {% endif %}
+    </h1>
+    <div class="module">
+        <h2>Page info</h2>
+        <form action="." method="POST">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Save page"></p>
+        </form>
+    </div>
+{% endblock content %}

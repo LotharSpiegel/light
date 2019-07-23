@@ -1,0 +1,33 @@
+{% block content %}
+
+
+<h1>Member Profile of {{ profile }}</h1>
+
+<div class="row">
+	{% if user.pk == profile.user.pk %}
+	<div class="col-md-6 col-md-offset-1">
+	{% else %}
+	<div class="col-md-9 col-md-offset-1">
+	{% endif %}
+		<h2>About {{ profile }}</h2>
+		{{ profile.about|default:"No about written yet."|linebreaks }}
+		<br>
+		<p><strong>Website:</strong> {% if profile.website %}<a href="{{ profile.website }}">Go to external website</a>{% else %}No website given.{% endif %} </p>
+	</div>
+
+	{% if user.pk == profile.user.pk %}
+		<div class="col-md-3">
+			<br>
+			<ul class="task-list" list-style-type="none" >
+				<li>
+					<a href="{% url 'accounts:password_change' %}" class="btn btn-default">Change Password</a>
+				</li>
+				<li>
+					<a href="{{ profile.get_update_url }}" class="btn btn-default">Edit Your Profile</a>
+				</li>
+			</ul>
+		</div>
+	{% endif %}
+</div>
+
+{% endblock %}

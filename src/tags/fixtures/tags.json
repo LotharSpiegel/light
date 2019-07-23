@@ -1,0 +1,57 @@
+[
+{
+  "model": "tags.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Hong Kong",
+    "slug": "hong-kong",
+    "popularity": 0,
+    "content_type": 8,
+    "object_id": 1
+  }
+},
+{
+  "model": "tags.tag",
+  "pk": 2,
+  "fields": {
+    "name": "Singapore",
+    "slug": "singapore",
+    "popularity": 0,
+    "content_type": 8,
+    "object_id": 2
+  }
+},
+{
+  "model": "tags.tag",
+  "pk": 3,
+  "fields": {
+    "name": "Vienna",
+    "slug": "vienna",
+    "popularity": 0,
+    "content_type": 8,
+    "object_id": 3
+  }
+},
+{
+  "model": "tags.tag",
+  "pk": 4,
+  "fields": {
+    "name": "Budapest",
+    "slug": "budapest",
+    "popularity": 0,
+    "content_type": 8,
+    "object_id": 4
+  }
+},
+{
+  "model": "tags.tag",
+  "pk": 5,
+  "fields": {
+    "name": "Rome",
+    "slug": "rome",
+    "popularity": 0,
+    "content_type": 8,
+    "object_id": 5
+  }
+}
+]

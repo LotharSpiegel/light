@@ -1,0 +1,7 @@
+{% block content %}
+<form method="post" novalidate>
+  {% csrf_token %}
+  {% include 'includes/form.html' %}
+  <button type="submit" class="btn btn-primary btn-block">Register new account</button>
+</form>
+{% endblock %}

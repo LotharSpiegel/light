@@ -1,0 +1,16 @@
+{% load permissions %}
+
+{% if request.user.is_authenticated %}
+  <ul class="nav navbar-nav">
+    <li>
+      <a href="{% url 'accounts:profile_view' %}">My profile</a>
+    </li>
+    <li>
+      <a href="{% url 'accounts:logout' %}">Log out</a>
+    </li>
+  </ul>
+{% else %}
+  <li {% if active_site == 'login' %}class="active"{% endif %}>
+    <a href="{% url 'accounts:login' %}">Login</a>
+  </li>
+{% endif %}

@@ -1,0 +1,20 @@
+{% load utils_filters %}
+
+{% block breadcrumbs %}
+{% if breadcrumbs %}
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb my-4">
+		{% for crumb in breadcrumbs|skip_last %}
+			<li class="breadcrumb-item">
+				<a href="{{ crumb.1 }}">{{ crumb.0 }}</a>
+			</li>
+		{% endfor %}
+
+		<li class="breadcrumb-item active" aria-current="page">
+			{{ breadcrumbs|last_item|item:0 }}
+		</li>
+	</ol>
+</nav>
+{% endif %}
+
+{% endblock %}
