@@ -3,15 +3,15 @@
 {% block breadcrumbs %}
 {% if breadcrumbs %}
 <nav aria-label="breadcrumb">
-	<ol class="breadcrumb my-4">
+	<ol class="breadcrumbs-arrow my-4">
 		{% for crumb in breadcrumbs|skip_last %}
-			<li class="breadcrumb-item">
+			<li>
 				<a href="{{ crumb.1 }}">{{ crumb.0 }}</a>
 			</li>
 		{% endfor %}
 
-		<li class="breadcrumb-item active" aria-current="page">
-			{{ breadcrumbs|last_item|item:0 }}
+		<li aria-current="page">
+			<a href="" class="active">{{ breadcrumbs|last_item|item:0 }}</a>
 		</li>
 	</ol>
 </nav>

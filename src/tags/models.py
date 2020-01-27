@@ -12,11 +12,16 @@ from utils.misc import create_slug
 # Idea: not only tagged item have content_type, but also Tag itself could be represented by
 # a django model..
 
+
 # class TaggedItemMangager(models.Manager):
 
 
 def tag_item(self, item, tag):
     TaggedItem.objects.get_or_create(tag=tag, item=item)
+
+
+# remove_tag_from_item(self, item, tag):
+# get_item_tags(self, item)
 
 
 class Tag(models.Model):

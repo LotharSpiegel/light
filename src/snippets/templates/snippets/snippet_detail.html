@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static snippets %}
+
+{% block add-css %}
+	<link rel="stylesheet" href="{% static 'css/pygments.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h1>Snippet: {{ snippet.title }}</h1>
+
+{{ snippet.highlighted_code|safe }}
+
+{% if snippet_is_editable %}
+	<a href="{{ snippet.get_edit_url }}" class="btn btn-default">Edit</a>
+{% endif %}
+
+{% endblock %}
+

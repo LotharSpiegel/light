@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static snippets %}
+
+{% block add-css %}
+	<link rel="stylesheet" href="{% static 'css/pygments.css' %}">
+{% endblock %}
+
+{% block block-id %}{% endblock %}
+
+{% block content %}
+
+{{ page_content }}
+
+{% endblock %}

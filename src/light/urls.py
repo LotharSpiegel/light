@@ -13,13 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import include, path
+from django.views.generic.base import RedirectView
 
 
-def homepage(request):
-    return HttpResponse('homepage')
+# def homepage(request):
+#     return redirect
+    #return HttpResponse('homepage')
 
 def contact(request):
     return HttpResponse('contact')
@@ -27,20 +30,15 @@ def contact(request):
 def about(request):
     return HttpResponse('about')
 
-from contents.views import PageCreateView, view_page, PageUpdateView#, PublishedPageView, NotPublishedYetPageView
+from contents.views import view_page
 
 urlpatterns = [
-    # includes:
     path('admin/', admin.site.urls),
     path('members/', include('accounts.urls', namespace='accounts')),
-    #path('edit/pages/<slug:page_slug>', ),
-    path('new_page/', PageCreateView.as_view(), name='create_page'),
-    # path('pages/<slug:slug>/not_published', NotPublishedYetPageView.as_view(), name='view_page_not_published'),
-    # path('pages/<slug:slug>', PublishedPageView.as_view(), name='view_page'),
-    path('pages/<slug:slug>/edit', PageUpdateView.as_view(), name='edit_page'),
-    path('pages/<slug:slug>/', view_page, name='view_page'),
+    path('pages/', include('contents.urls', namespace='contents')),
+    path('snippets/', include('snippets.urls', namespace='snippets')),
 
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
-    path('', homepage, name='homepage'),
+    path('', RedirectView.as_view(url='pages/index', permanent=False), name='homepage'),
 ]

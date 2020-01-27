@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for snippet in snippets %}
+	<a href="{{ snippet.get_absolute_url }}">{{ snippet }}</a>
+{% endfor %}
+
+<br/>
+<br/>
+<a href="{% url 'snippets:snippet_create' %}" class="btn btn-default">New Snippet</a>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block block-id %}{% endblock %}
+
+{% block content %}
+
+<h1>
+  {% if snippet %}
+      Edit snippet "{{ snippet.title }}"
+  {% else %}
+      Create a new snippet
+  {% endif %}
+</h1>
+<div class="module">
+  <form action="." method="POST">
+    {% csrf_token %}
+    {% include 'includes/form.html' %}
+    <div class="form-row">
+      <input type="submit" value="Save snippet" class="btn btn-primary">
+    </div>
+  </form>
+</div>
+
+{% endblock %}

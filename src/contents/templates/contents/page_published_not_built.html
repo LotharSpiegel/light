@@ -6,13 +6,14 @@
 {% block content %}
 
 <p>
-This page is not yet published.
+This page is published but not built yet.
+
 {% if request.user == page.author %}
 You created this page.
 {% endif %}
 </p>
 
-{% if request.user.is_superuser or request.user == page.author %}
+{% if page_is_editable %}
 <a class="btn" href="{% url 'contents:edit_page' page.slug %}">Edit Page</a>
 {% endif %}
 

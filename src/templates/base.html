@@ -1,35 +1,41 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE-edge">
 	<meta name="viewport" content="width=device-width",initial-scale=1">
-	<title>{% block title %}{{light.title}}{% if title %} - {{ title }}{% endif %}{% endblock %}</title>
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<meta name="author" content="Lothar Spiegel">
+	<title>{% block title %}{% if title %}{{ title }}{% endif %}{% endblock %}</title>
+	{% block css %}
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/base.css' %}">
+		{% block add-css %}{% endblock %}
+	{% endblock %}
 </head>
-<body id="{% block body-id %}body{% endblock %}">
-
-	{% include 'navbar.html' %}
+<body id="page-top">
 
 	{% block sidebar %}
 	{% endblock %}
 
+	{% include 'navbar.html' %}
+
 	<div id="wrapper">
 		<div class="container" id="body-content">
 			<a name="top"></a> 
-					{% include 'includes/messages.html' %}
+			{% block messages %}
+				{% include 'includes/messages.html' %}
+			{% endblock %}
+			{% block breadcrumbs %}
+      	{% include 'includes/breadcrumbs.html' %}
+      {% endblock %}
 
-	        {% include 'includes/breadcrumbs.html' %}
-
-	        {% block content %}{% endblock content %}
-
+      {% block content %}{% endblock content %}
 	  </div>
 	  {% include 'includes/footer.html' %}
 	</div>
 
 	{% include 'includes/js.html' %}
-
 </body>
 </html>
